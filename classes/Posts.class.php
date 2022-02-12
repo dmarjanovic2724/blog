@@ -18,7 +18,7 @@ class Posts extends Dbh{
        $stmt->execute([$title, $body, $author]);
 
     //    header("Location: index.php");
-       header("Location: {$_SERVER['HTTP_REFERER']}");
+     
     }
 
 
@@ -29,6 +29,19 @@ class Posts extends Dbh{
         $result= $stmt->fetch();
 
         return $result;
+
+    }
+    public function updatePost($title, $body, $author, $id){
+        $sql="UPDATE posts SET title=?, body=?, author=? WHERE id=? ";
+        $stmt=$this->connect()->prepare($sql);
+        $stmt->execute([$title, $body, $author, $id]);
+       
+    }
+
+    public function deletePost($id){
+        $sql="DELETE  from posts WHERE id=?";
+        $stmt=$this->connect()->prepare($sql);
+        $stmt->execute([$id]);
 
     }
 

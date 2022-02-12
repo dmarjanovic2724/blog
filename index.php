@@ -63,14 +63,14 @@ require_once('./templates/header.php');
                 </p>
                 <h6 class="card-subtitle text-muted text-right">Autor:<?= $post['author'] ?></h6>
                 <a href="editForm.php?id=<?= $post['id'] ?>" class="btn btn-warning">Edit</a>
-                <a href="post.process.php?id=<?= $post['id'] ?>" class="btn btn-danger">Delete</a>
+                <a href="post.process.php?id=<?= $post['id']?>&send=del" class="btn btn-danger">Delete</a>
             </div>
         </div>
     </div>
 
             <?php endforeach; ?>
             <?php else :?>
-                <p>post is empty</p>
+                <p class="text-center mt-5">post is empty...</p>
                 <?php endif ?>
 </div>
 
